@@ -47,7 +47,11 @@ export default {
     }
   },
   computed: {
-    // ...
+    filteredTodos() {
+      return this.hideCompleted
+        ? this.todos.filter((t) => !t.done)
+        : this.todos
+    }
   },
   methods: {
     addTodo() {
@@ -63,12 +67,23 @@ export default {
 
 <template>
   <div>
+    
     <form @submit.prevent="addTodo">
-      <input v-model="newTodo" />
-      <button>Add Todo</button>
+      <div class="field">
+        <label class="label">Your message:</label>
+        <div class="control">
+          <input v-model="newTodo" class="input" type="text" placeholder="What's happening?">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-info">Add Todo</button>
+        </div>
+      </div>
     </form>
+
     <ul>
-      <li v-for="todo in todos" :key="todo.id">
+      <li v-for="todo in filteredTodos" :key="todo.id">
         <input type="checkbox" v-model="todo.done">
         <span :class="{ done: todo.done }">{{ todo.text }}</span>
         <button @click="removeTodo(todo)">X</button>
@@ -81,6 +96,7 @@ export default {
 </template>
 
 <style>
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 .done {
   text-decoration: line-through;
 }
