@@ -4,7 +4,7 @@
         <a class="navbar-burger" data-target="navbar-example" :class="{ 'is-active': isActive }" @click="isActive = !isActive">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
       <div id="navbar-example" class="navbar-menu" :class="{ 'is-active': isActive }">
@@ -15,13 +15,9 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link is-hoverable">Stuff</a>
                 <div class="navbar-dropdown is-boxed">
-                    <a class="navbar-item" href="#">
-                        Option
-                    </a> 
+                    <a class="navbar-item" href="#">Option</a> 
                     <hr class="navbar-divider">
-                    <a class="navbar-item" href="#">
-                        Option
-                    </a>                    
+                    <a class="navbar-item" href="#">Option</a>                    
                 </div>  
             </div>             
         </div>
@@ -49,7 +45,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
